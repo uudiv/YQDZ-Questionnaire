@@ -1,3 +1,22 @@
+@keyframes screen0_tu5 {
+    from {
+        opacity: 0;
+        transform: scale(3);
+    }
+    to {}
+}
+
+.screen0_tu5 {
+    animation-name: screen0_tu5;
+}
+
+@keyframes screen0_tu6 {
+    from {
+        transform: scale(1.2);
+    }
+    to {}
+}
+
 .screen0 {
     .tu1 {
         position: absolute;
@@ -28,9 +47,43 @@
     .tu6 {
         width: 192rem/@baseFontSize;
         position: absolute;
-        top: 717rem/@baseFontSize;
+        top: 730rem/@baseFontSize;
         right: 220rem/@baseFontSize;
+        animation: screen0_tu6 1s linear infinite alternate;
     }
 }
 
-.screen1 {}
+h2 {
+    font-size: 42rem/@baseFontSize;
+    font-weight: 300;
+    line-height: 1.5;
+    padding-left: 50rem/@baseFontSize;
+}
+
+.screen1 {
+    .mui-scroll>h2 {
+        position: absolute;
+        top: 195rem/@baseFontSize;
+        left: 0;
+    }
+    form {
+        width: 100%;
+        padding: 0 50rem/@baseFontSize;
+        position: absolute;
+        top: 375rem/@baseFontSize;
+        left: 0;
+        input {
+            margin-bottom: 50rem/@baseFontSize;
+        }
+        h2 {
+            padding: 0;
+        }
+    }
+    .global_xyb {
+        width: 192rem/@baseFontSize;
+        position: absolute;
+        top: 777rem/@baseFontSize;
+        right: 220rem/@baseFontSize;
+        animation: screen0_tu6 1s linear infinite alternate;
+    }
+}

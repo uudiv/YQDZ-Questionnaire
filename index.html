@@ -20,7 +20,7 @@
 		<!--音乐-->
 		<!--<audio id="musicStar" src="images/music.mp3" autoplay="true" preload="auto" loop="loop" style="display: none;"></audio>-->
 
-		<div class="h5_container">
+		<div class="h5_container" id="app">
 
 			<!--swiper-->
 			<div class="swiper-container">
@@ -31,25 +31,25 @@
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
-									<img src="images/global_bg.jpg"/>
+									<img src="images/global_bg.jpg" />
 								</div>
-								<div class="tu1">
-									<img src="images/00_tu1.png"/>
+								<div class="tu1 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s">
+									<img src="images/00_tu1.png" />
 								</div>
-								<div class="tu2">
-									<img src="images/00_tu2.png"/>
+								<div class="tu2 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+									<img src="images/00_tu2.png" />
 								</div>
-								<div class="tu3">
-									<img src="images/00_tu3.png"/>
+								<div class="tu3 ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="1s" swiper-animate-delay="0s">
+									<img src="images/00_tu3.png" />
 								</div>
-								<div class="tu4">
-									<img src="images/00_tu4.png"/>
+								<div class="tu4 ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0s">
+									<img src="images/00_tu4.png" />
 								</div>
-								<div class="tu5">
-									<img src="images/00_tu5.png"/>
+								<div class="tu5 ani" swiper-animate-effect="screen0_tu5" swiper-animate-duration="0.6s" swiper-animate-delay="1s">
+									<img src="images/00_tu5.png" />
 								</div>
 								<div class="tu6">
-									<img src="images/00_tu6.png"/>
+									<img src="images/00_tu6.png" />
 								</div>
 							</div>
 						</div>
@@ -57,7 +57,19 @@
 					<div class="swiper-slide screen1">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								1111111111111111111111111
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<h2>请留下您的真实信息，<br />不然礼物会找不到回家的路~</h2>
+								<form action="">
+									<h2>您的姓名：</h2>
+									<input type="text" name="name" v-model="name"/>
+									<h2>您的手机号：</h2>
+									<input type="text" name="phone" v-model="phone"/>
+								</form>
+								<div class="global_xyb">
+									<img src="images/global_xyb.png"/>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -92,7 +104,8 @@
 			</div>
 		</div>
 
-		<script src="lib/jquery/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<!--<script src="lib/jquery/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="lib/mui/js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="lib/swiper/js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="lib/swiper/js/swiper.animate1.0.3.min.js" type="text/javascript" charset="utf-8"></script>
