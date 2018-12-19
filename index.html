@@ -49,7 +49,7 @@
 									<img src="images/00_tu5.png" />
 								</div>
 								<div class="tu6">
-									<img src="images/00_tu6.png" />
+									<img src="images/00_tu6.png" class="nextPage" />
 								</div>
 							</div>
 						</div>
@@ -63,12 +63,12 @@
 								<h2>请留下您的真实信息，<br />不然礼物会找不到回家的路~</h2>
 								<form action="">
 									<h2>您的姓名：</h2>
-									<input type="text" name="name" v-model="name"/>
+									<input type="text" name="name" v-model="name" />
 									<h2>您的手机号：</h2>
-									<input type="text" name="phone" v-model="phone"/>
+									<input type="text" name="phone" v-model="phone" />
 								</form>
 								<div class="global_xyb">
-									<img src="images/global_xyb.png"/>
+									<img src="images/global_xyb.png" class="nextPage" />
 								</div>
 							</div>
 						</div>
@@ -76,14 +76,36 @@
 					<div class="swiper-slide screen2">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								2
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>您是如何找到我们的？</h2>
+									<ul>
+										<li @click="radioClick('A',$event)"><span>□</span>靠自己搜索关注 </li>
+										<li @click="radioClick('B',$event)"><span>□</span>靠朋友推荐关注</li>
+										<li @click="radioClick('C',$event)"><span>□</span>靠售后人员提醒关注</li>
+										<li @click="radioClick('D',$event)"><span>□</span>靠胖圈活动扫码关注</li>
+										<li @click="radioClick('E',$event,'flag1');flag1=!flag1"><span>□</span>小编不造的渠道</li>
+										<input type="text" v-if="flag1" />
+									</ul>
+									<transition>
+										<div class="go">
+											<img src="images/global_syt.png" class="prevPage" />
+											<img src="images/global_xyt.png" class="nextPage" />
+										</div>
+									</transition>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide screen3">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								3
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+
 							</div>
 						</div>
 					</div>

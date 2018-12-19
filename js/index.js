@@ -1,11 +1,21 @@
 var vm = new Vue({
 	el: '#app',
 	data: {
-		name:'',
-		phone:''
+		name: '',
+		phone: '',
+		flag1: false
 	},
 	methods: {
-
+		radioClick(data, event, data2) {
+			this.flag1 = false
+			var lis = event.path[1].children
+			for(var i = 0; i < lis.length; i++) {
+				if(lis[i].nodeName == 'LI') {
+					lis[i].children[0].innerHTML = '□'
+				}
+			}
+			event.path[0].children[0].innerHTML = '☑'
+		}
 	},
 	//初始化完成
 	created() {
@@ -57,5 +67,20 @@ var vm = new Vue({
 			deceleration: 0.0006, //阻尼系数,系数越小滑动越灵敏
 			bounce: true //是否启用回弹
 		})
+
+		var nextPageBtns = document.querySelectorAll('.nextPage')
+		nextPageBtns.forEach(function(item, i, arr) {
+			item.addEventListener('click', function() {
+				mySwiper.slideNext()
+			})
+		})
+
+		var prevPageBtns = document.querySelectorAll('.prevPage')
+		prevPageBtns.forEach(function(item, i, arr) {
+			item.addEventListener('click', function() {
+				mySwiper.slidePrev()
+			})
+		})
+
 	}
 })
