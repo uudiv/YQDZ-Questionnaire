@@ -52,13 +52,18 @@
         animation: screen0_tu6 1s linear infinite alternate;
     }
 }
-
+/*--------------------------------*/
 h2 {
     font-size: 42rem/@baseFontSize;
     font-weight: 300;
     line-height: 1.5;
 }
-
+h3 {
+    font-size: 34rem/@baseFontSize;
+    font-weight: 300;
+    line-height: 1.5;
+    margin-bottom: 50rem/@baseFontSize;
+}
 
 /*--------------------------------*/
 
@@ -91,30 +96,28 @@ h2 {
 
 /*--------------------------------*/
 
-.screen2 {
-    .box {
-        width: 100%;
-        padding: 0 50rem/@baseFontSize;
-        position: absolute;
-        top: 190rem/@baseFontSize;
-        left: 0;
-        ul {
-            padding: 0;
-            margin: 0;
-            margin-top: 46rem/@baseFontSize;
-            li {
-                font-size: 36rem/@baseFontSize;
-                font-weight: 300;
-                line-height: 1.5;
-                margin-bottom: 15rem/@baseFontSize;
-                span {
-                    display: inline-block;
-                    vertical-align: top;
-                    width: 36rem/@baseFontSize;
-                    height: 36rem/@baseFontSize;
-                    margin-right: 0.06rem;
-                    font-size: 0.36rem;
-                }
+.box {
+    width: 100%;
+    padding: 0 50rem/@baseFontSize;
+    position: absolute;
+    top: 190rem/@baseFontSize;
+    left: 0;
+    ul {
+        padding: 0;
+        margin: 0;
+        margin-top: 46rem/@baseFontSize;
+        li {
+            font-size: 36rem/@baseFontSize;
+            font-weight: 300;
+            line-height: 1.5;
+            margin-bottom: 15rem/@baseFontSize;
+            span {
+                display: inline-block;
+                vertical-align: top;
+                width: 36rem/@baseFontSize;
+                height: 36rem/@baseFontSize;
+                margin-right: 0.06rem;
+                font-size: 0.36rem;
             }
         }
     }
@@ -264,8 +267,19 @@ h2 {
 
 
 /*--------------------------------*/
-.v-move {
-    transition: all 1s ease;
-}
 
+//.v-move {
+//  transition: all 0.5s ease;
+//}
+//.v-leave-active {
+//  position: absolute;
+//}
+
+.input-enter,.input-leave-to {
+    transform: translateY(50px);
+    opacity: 0;
+}
+.input-enter-active,.input-leave-active {
+    transition: all 0.5s ease;
+}
 /*--------------------------------*/

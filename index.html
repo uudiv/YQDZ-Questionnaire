@@ -49,7 +49,7 @@
 									<img src="images/00_tu5.png" />
 								</div>
 								<div class="tu6">
-									<img src="images/00_tu6.png" class="nextPage" />
+									<img src="images/00_tu6.png" @click="mySwiper.slideNext()" />
 								</div>
 							</div>
 						</div>
@@ -63,12 +63,12 @@
 								<h2>请留下您的真实信息，<br />不然礼物会找不到回家的路~</h2>
 								<form action="">
 									<h2>您的姓名：</h2>
-									<input type="text" name="name" v-model="name" />
+									<input type="text" name="name" v-model="name" autocomplete="off"/>
 									<h2>您的手机号：</h2>
-									<input type="text" name="phone" v-model="phone" />
+									<input type="text" name="phone" v-model="phone" autocomplete="off"/>
 								</form>
 								<div class="global_xyb">
-									<img src="images/global_xyb.png" class="nextPage" />
+									<img src="images/global_xyb.png" @click="nextPage2(name,phone)" />
 								</div>
 							</div>
 						</div>
@@ -82,17 +82,19 @@
 								<div class="box">
 									<h2>您是如何找到我们的？</h2>
 									<ul>
-										<li @click="radioClick('A',$event)"><span>□</span>靠自己搜索关注 </li>
-										<li @click="radioClick('B',$event)"><span>□</span>靠朋友推荐关注</li>
-										<li @click="radioClick('C',$event)"><span>□</span>靠售后人员提醒关注</li>
-										<li @click="radioClick('D',$event)"><span>□</span>靠胖圈活动扫码关注</li>
-										<li @click="radioClick('E',$event,'flag1');flag1=!flag1"><span>□</span>小编不造的渠道</li>
-										<input type="text" v-if="flag1" />
+										<li @click="radioClick($event);setFindUs('A')"><span>□</span>靠自己搜索关注 </li>
+										<li @click="radioClick($event);setFindUs('B')"><span>□</span>靠朋友推荐关注</li>
+										<li @click="radioClick($event);setFindUs('C')"><span>□</span>靠售后人员提醒关注</li>
+										<li @click="radioClick($event);setFindUs('D')"><span>□</span>靠胖圈活动扫码关注</li>
+										<li @click="radioClick($event);setFindUs('');findUsInputFlag=true"><span>□</span>小编不造的渠道</li>
+										<transition name="input">
+											<input type="text" v-if="findUsInputFlag" v-model="findUs" placeholder="请输入..." autocomplete="off"/>
+										</transition>
 									</ul>
 									<transition>
 										<div class="go">
-											<img src="images/global_syt.png" class="prevPage" />
-											<img src="images/global_xyt.png" class="nextPage" />
+											<img src="images/global_syt.png" @click="prevPage" />
+											<img src="images/global_xyt.png" @click="nextPage(findUs)" />
 										</div>
 									</transition>
 								</div>
@@ -105,11 +107,52 @@
 								<div class="global_bg">
 									<img src="images/global_bg.jpg" />
 								</div>
-
+								<div class="box">
+									<h3>请赐给我们一个深入了解您的机会~</h3>
+									<h2>1、您的性别是？</h2>
+									<ul>
+										<li @click="radioClick($event);user1='男'" style="font-size: 1rem;color: #3469c0;"><span style="margin-top: 0.5rem;">□</span>♂</li>
+										<li @click="radioClick($event);user1='女'" style="font-size: 1rem;color: #c14694;"><span style="margin-top: 0.5rem;">□</span>♀</li>
+									</ul>
+									<transition>
+										<div class="go">
+											<img src="images/global_syt.png" @click="prevPage" />
+											<img src="images/global_xyt.png" @click="nextPage(user1)" />
+										</div>
+									</transition>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide screen4">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								4
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide screen5">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								4
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide screen6">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								4
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide screen7">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								4
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide screen8">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								4

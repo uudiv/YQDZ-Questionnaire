@@ -3,11 +3,16 @@ var vm = new Vue({
 	data: {
 		name: '',
 		phone: '',
-		flag1: false
+		findUs: '',
+		user1:'',
+		user2:'',
+
+		mySwiper: null,
+
+		findUsInputFlag: false,
 	},
 	methods: {
-		radioClick(data, event, data2) {
-			this.flag1 = false
+		radioClick(event) {
 			var lis = event.path[1].children
 			for(var i = 0; i < lis.length; i++) {
 				if(lis[i].nodeName == 'LI') {
@@ -15,6 +20,27 @@ var vm = new Vue({
 				}
 			}
 			event.path[0].children[0].innerHTML = '☑'
+		},
+		setFindUs(data) {
+			this.findUs = data
+			this.findUsInputFlag = false
+		},
+		prevPage(data) {
+			this.mySwiper.slidePrev()
+		},
+		nextPage(data) {
+			if(data) {
+				this.mySwiper.slideNext()
+			} else {
+				mui.alert('请完成选项')
+			}
+		},
+		nextPage2(data1, data2) {
+			if(data1 && data2) {
+				this.mySwiper.slideNext()
+			} else {
+				mui.alert('请完成选项')
+			}
 		}
 	},
 	//初始化完成
@@ -34,7 +60,7 @@ var vm = new Vue({
 		audioAutoPlay('musicStar');*/
 
 		//swiper-container
-		var mySwiper = new Swiper('.swiper-container', {
+		this.mySwiper = new Swiper('.swiper-container', {
 			autoplay: false,
 			direction: 'horizontal',
 			loop: false,
@@ -68,19 +94,21 @@ var vm = new Vue({
 			bounce: true //是否启用回弹
 		})
 
-		var nextPageBtns = document.querySelectorAll('.nextPage')
-		nextPageBtns.forEach(function(item, i, arr) {
-			item.addEventListener('click', function() {
-				mySwiper.slideNext()
-			})
-		})
-
-		var prevPageBtns = document.querySelectorAll('.prevPage')
-		prevPageBtns.forEach(function(item, i, arr) {
-			item.addEventListener('click', function() {
-				mySwiper.slidePrev()
-			})
-		})
+		//下一页
+		//		var nextPageBtns = document.querySelectorAll('.nextPage')
+		//		nextPageBtns.forEach(function(item, i, arr) {
+		//			item.addEventListener('click', function() {
+		//				mySwiper.slideNext()
+		//			})
+		//		})
+		//
+		//		//上一页
+		//		var prevPageBtns = document.querySelectorAll('.prevPage')
+		//		prevPageBtns.forEach(function(item, i, arr) {
+		//			item.addEventListener('click', function() {
+		//				mySwiper.slidePrev()
+		//			})
+		//		})
 
 	}
 })
