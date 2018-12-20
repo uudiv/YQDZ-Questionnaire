@@ -63,9 +63,9 @@
 								<h2>请留下您的真实信息，<br />不然礼物会找不到回家的路~</h2>
 								<form action="">
 									<h2>您的姓名：</h2>
-									<input type="text" name="name" v-model="name" autocomplete="off"/>
+									<input type="text" name="name" v-model="name" autocomplete="off" />
 									<h2>您的手机号：</h2>
-									<input type="text" name="phone" v-model="phone" autocomplete="off"/>
+									<input type="text" name="phone" v-model="phone" autocomplete="off" />
 								</form>
 								<div class="global_xyb">
 									<img src="images/global_xyb.png" @click="nextPage2(name,phone)" />
@@ -82,21 +82,20 @@
 								<div class="box">
 									<h2>您是如何找到我们的？</h2>
 									<ul>
+
 										<li @click="radioClick($event);setFindUs('A')"><span>□</span>靠自己搜索关注 </li>
 										<li @click="radioClick($event);setFindUs('B')"><span>□</span>靠朋友推荐关注</li>
 										<li @click="radioClick($event);setFindUs('C')"><span>□</span>靠售后人员提醒关注</li>
 										<li @click="radioClick($event);setFindUs('D')"><span>□</span>靠胖圈活动扫码关注</li>
 										<li @click="radioClick($event);setFindUs('');findUsInputFlag=true"><span>□</span>小编不造的渠道</li>
-										<transition name="input">
-											<input type="text" v-if="findUsInputFlag" v-model="findUs" placeholder="请输入..." autocomplete="off"/>
-										</transition>
+
+										<input type="text" v-if="findUsInputFlag" v-model="findUs" placeholder="请输入..." autocomplete="off" />
+
 									</ul>
-									<transition>
-										<div class="go">
-											<img src="images/global_syt.png" @click="prevPage" />
-											<img src="images/global_xyt.png" @click="nextPage(findUs)" />
-										</div>
-									</transition>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(findUs)" />
+									</div>
 								</div>
 							</div>
 						</div>
@@ -114,12 +113,10 @@
 										<li @click="radioClick($event);user1='男'" style="font-size: 1rem;color: #3469c0;"><span style="margin-top: 0.5rem;">□</span>♂</li>
 										<li @click="radioClick($event);user1='女'" style="font-size: 1rem;color: #c14694;"><span style="margin-top: 0.5rem;">□</span>♀</li>
 									</ul>
-									<transition>
-										<div class="go">
-											<img src="images/global_syt.png" @click="prevPage" />
-											<img src="images/global_xyt.png" @click="nextPage(user1)" />
-										</div>
-									</transition>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(user1)" />
+									</div>
 								</div>
 							</div>
 						</div>
@@ -127,35 +124,146 @@
 					<div class="swiper-slide screen4">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								4
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>2、您的年龄是？ </h2>
+									<ul>
+										<li @click="radioClick($event);user2='A'"><span>□</span>18岁以下的未成年宝宝</li>
+										<li @click="radioClick($event);user2='B'"><span>□</span>18-29岁的稚嫩鲜肉</li>
+										<li @click="radioClick($event);user2='C'"><span>□</span>30-39岁的社会精英</li>
+										<li @click="radioClick($event);user2='D'"><span>□</span>40-49岁的中流砥柱</li>
+										<li @click="radioClick($event);user2='E'"><span>□</span>49岁以上的尊贵老干部</li>
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(user2)" />
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide screen5">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								4
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>3、您的最高学历是？ </h2>
+									<ul>
+										<li @click="radioClick($event);user3='A'"><span>□</span>自学成才</li>
+										<li @click="radioClick($event);user3='B'"><span>□</span>高中及以下</li>
+										<li @click="radioClick($event);user3='C'"><span>□</span>本科</li>
+										<li @click="radioClick($event);user3='D'"><span>□</span>硕士</li>
+										<li @click="radioClick($event);user3='E'"><span>□</span>博士及以上</li>
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(user3)" />
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide screen6">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								4
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>4、您的爱车到位了吗？</h2>
+									<ul>
+										<transition-group>
+
+											<li :key="1" @click="radioClick($event);user4='';user4InputFlag=true"><span>□</span>已到位，我是一汽-大众车主</li>
+											<input :key="5" type="text" v-if="user4InputFlag" v-model="user4" placeholder="您的爱车是一汽-大众?(填写车型)" autocomplete="off" />
+											<li :key="2" @click="radioClick($event);user4='B';user4InputFlag=false"><span>□</span>已到位，我是其他品牌车主</li>
+											<li :key="3" @click="radioClick($event);user4='C';user4InputFlag=false"><span>□</span>指标在手，正在寻找合眼缘的座驾</li>
+											<li :key="4" @click="radioClick($event);user4='D';user4InputFlag=false"><span>□</span>客观原因，暂时不考虑买车</li>
+
+										</transition-group>
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(user4)" />
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide screen7">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								4
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>5、您与爱车相伴几年？</h2>
+									<ul>
+										<li @click="radioClick($event);user5='A'"><span>□</span>不到一年，新婚燕尔</li>
+										<li @click="radioClick($event);user5='B'"><span>□</span>二到五年，你侬我侬</li>
+										<li @click="radioClick($event);user5='C'"><span>□</span>六到十年，老夫老妻</li>
+										<li @click="radioClick($event);user5='D'"><span>□</span>十年以上，灵魂伴侣</li>
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(user5)" />
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-slide screen8">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								4
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>6、请透露一下您的驾龄？</h2>
+									<ul>
+										<li @click="radioClick($event);user6='A'"><span>□</span>从未上路的襁褓婴儿</li>
+										<li @click="radioClick($event);user6='B'"><span>□</span>1年以内的生瓜蛋子</li>
+										<li @click="radioClick($event);user6='C'"><span>□</span>2-5年的半熟车手</li>
+										<li @click="radioClick($event);user6='D'"><span>□</span>5年以上的纯熟老司机</li>
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(user6)" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide screen9">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>7、勾选符合您的兴趣标签<br/><small>[多选题]</small></h2>
+									<ul class="mui-clearfix">
+										<li @click="checkBoxClick($event);setUser7('A')"><span>□</span>背包远行</li>
+										<li @click="checkBoxClick($event);setUser7('B')"><span>□</span>吃遍四方</li>
+										<li @click="checkBoxClick($event);setUser7('C')"><span>□</span>汽车文化</li>
+										<li @click="checkBoxClick($event);setUser7('D')"><span>□</span>历史民俗</li>
+										<li @click="checkBoxClick($event);setUser7('E')"><span>□</span>健身撸铁</li>
+										<li @click="checkBoxClick($event);setUser7('F')"><span>□</span>娱乐八卦</li>
+										<li @click="checkBoxClick($event);setUser7('G')"><span>□</span>电子竞技</li>
+										<li @click="checkBoxClick($event);setUser7('H')"><span>□</span>极限运动</li>
+										<li @click="checkBoxClick($event);setUser7('I')"><span>□</span>吸猫铲屎</li>
+										<li @click="checkBoxClick($event);setUser7('J')"><span>□</span>前瞻科技</li>
+										<li @click="checkBoxClick($event);setUser7('K')"><span>□</span>其他</li>
+									</ul>
+									<div class="go" style="margin-top: 0;">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(user7)" />
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

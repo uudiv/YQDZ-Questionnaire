@@ -4,12 +4,18 @@ var vm = new Vue({
 		name: '',
 		phone: '',
 		findUs: '',
-		user1:'',
-		user2:'',
+		user1: '',
+		user2: '',
+		user3: '',
+		user4: '',
+		user5: '',
+		user6: '',
+		user7: [],
 
 		mySwiper: null,
 
 		findUsInputFlag: false,
+		user4InputFlag: false
 	},
 	methods: {
 		radioClick(event) {
@@ -20,6 +26,14 @@ var vm = new Vue({
 				}
 			}
 			event.path[0].children[0].innerHTML = '☑'
+		},
+		checkBoxClick(event) {
+			var con = event.path[0].children[0].innerHTML
+			if(event.path[0].children[0].innerHTML == '□') {
+				event.path[0].children[0].innerHTML = '☑'
+			} else {
+				event.path[0].children[0].innerHTML = '□'
+			}
 		},
 		setFindUs(data) {
 			this.findUs = data
@@ -40,6 +54,11 @@ var vm = new Vue({
 				this.mySwiper.slideNext()
 			} else {
 				mui.alert('请完成选项')
+			}
+		},
+		setUser7(data) {
+			if(this.user7.indexOf(data) == -1) {
+				this.user7.push(data)
 			}
 		}
 	},
