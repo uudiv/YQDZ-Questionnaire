@@ -105,6 +105,7 @@ var vm = new Vue({
 				return false
 			}
 
+			//没抽中这样
 			var msg = ['与礼包擦肩不要紧，千万别错过爱车下一次的保养时间哦～', '与礼包擦肩不要紧，千万别错过妈妈辛苦炖的靓汤哦～', '与礼包擦肩不要紧，千万别错过公司赏赐的年终奖哦～', '与礼包擦肩不要紧，千万别错过落地窗外撩人的美景哦～', '与礼包擦肩不要紧，千万别错过好友聚会丰盛的大餐哦～']
 
 			mui.alert(msg[Math.floor(Math.random() * 5)])
@@ -160,22 +161,6 @@ var vm = new Vue({
 			deceleration: 0.0006, //阻尼系数,系数越小滑动越灵敏
 			bounce: true //是否启用回弹
 		})
-
-		//下一页
-		//		var nextPageBtns = document.querySelectorAll('.nextPage')
-		//		nextPageBtns.forEach(function(item, i, arr) {
-		//			item.addEventListener('click', function() {
-		//				mySwiper.slideNext()
-		//			})
-		//		})
-		//
-		//		//上一页
-		//		var prevPageBtns = document.querySelectorAll('.prevPage')
-		//		prevPageBtns.forEach(function(item, i, arr) {
-		//			item.addEventListener('click', function() {
-		//				mySwiper.slidePrev()
-		//			})
-		//		})
 
 	}
 })
