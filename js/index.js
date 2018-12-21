@@ -3,7 +3,9 @@ var vm = new Vue({
 	data: {
 		name: '',
 		phone: '',
+
 		findUs: '',
+
 		user1: '',
 		user2: '',
 		user3: '',
@@ -12,10 +14,29 @@ var vm = new Vue({
 		user6: '',
 		user7: [],
 
+		idea1: '',
+		idea2: [],
+		idea3: '',
+		idea4: '',
+		idea5: '',
+		idea6: '',
+
+		read1: '',
+		read2: '',
+		read3a: '',
+		read3b: '',
+
 		mySwiper: null,
 
 		findUsInputFlag: false,
-		user4InputFlag: false
+		user4InputFlag: false,
+
+		idea1InputFlag: false,
+		idea3InputFlag: false,
+		idea4InputFlag: false,
+		idea5InputFlag: false,
+
+		read2InputFlag: false,
 	},
 	methods: {
 		radioClick(event) {
@@ -28,7 +49,6 @@ var vm = new Vue({
 			event.path[0].children[0].innerHTML = '☑'
 		},
 		checkBoxClick(event) {
-			var con = event.path[0].children[0].innerHTML
 			if(event.path[0].children[0].innerHTML == '□') {
 				event.path[0].children[0].innerHTML = '☑'
 			} else {
@@ -56,10 +76,38 @@ var vm = new Vue({
 				mui.alert('请完成选项')
 			}
 		},
-		setUser7(data) {
-			if(this.user7.indexOf(data) == -1) {
-				this.user7.push(data)
+		nextPage3(data) {
+			if(data.length != 0) {
+				this.mySwiper.slideNext()
+			} else {
+				mui.alert('请完成选项')
 			}
+		},
+		setUser7(data) {
+			var index = this.user7.indexOf(data)
+			if(index == -1) {
+				this.user7.push(data)
+			} else {
+				this.user7.splice(index, 1)
+			}
+		},
+		setidea2(data) {
+			var index = this.idea2.indexOf(data)
+			if(index == -1) {
+				this.idea2.push(data)
+			} else {
+				this.idea2.splice(index, 1)
+			}
+		},
+		submit() {
+			if(!this.read3a || !this.read3b) {
+				mui.alert('请完成选项')
+				return false
+			}
+
+			var msg = ['与礼包擦肩不要紧，千万别错过爱车下一次的保养时间哦～', '与礼包擦肩不要紧，千万别错过妈妈辛苦炖的靓汤哦～', '与礼包擦肩不要紧，千万别错过公司赏赐的年终奖哦～', '与礼包擦肩不要紧，千万别错过落地窗外撩人的美景哦～', '与礼包擦肩不要紧，千万别错过好友聚会丰盛的大餐哦～']
+
+			mui.alert(msg[Math.floor(Math.random() * 5)])
 		}
 	},
 	//初始化完成

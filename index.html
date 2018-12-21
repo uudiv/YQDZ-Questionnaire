@@ -27,7 +27,7 @@
 
 				<div class="swiper-wrapper">
 
-					<div class="swiper-slide screen0">
+					<div class="swiper-slide swiper-no-swiping  screen0">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
@@ -54,7 +54,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide screen1">
+					<div class="swiper-slide swiper-no-swiping  screen1">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
@@ -73,7 +73,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide screen2">
+					<div class="swiper-slide swiper-no-swiping  screen2">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
@@ -100,7 +100,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide screen3">
+					<div class="swiper-slide swiper-no-swiping  screen3">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
@@ -121,7 +121,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide screen4">
+					<div class="swiper-slide swiper-no-swiping  screen4">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
@@ -144,7 +144,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide screen5">
+					<div class="swiper-slide swiper-no-swiping  screen5">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
@@ -167,7 +167,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide screen6">
+					<div class="swiper-slide swiper-no-swiping  screen6">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
@@ -194,7 +194,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide screen7">
+					<div class="swiper-slide swiper-no-swiping  screen7">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
@@ -216,7 +216,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide screen8">
+					<div class="swiper-slide swiper-no-swiping  screen8">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
@@ -238,7 +238,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide screen9">
+					<div class="swiper-slide swiper-no-swiping  screen9">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
@@ -261,7 +261,216 @@
 									</ul>
 									<div class="go" style="margin-top: 0;">
 										<img src="images/global_syt.png" @click="prevPage" />
-										<img src="images/global_xyt.png" @click="nextPage(user7)" />
+										<img src="images/global_xyt.png" @click="nextPage3(user7)" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide swiper-no-swiping  screen10">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h3>您的心之所向，<br/>就是我们努力的方向~</h3>
+									<h2>1、您喜欢“一汽-大众客户俱乐部”的推送内容么？</h2>
+									<ul>
+										<li @click="radioClick($event);idea1='A';idea1InputFlag=false"><span>□</span>喜欢</li>
+										<li @click="radioClick($event);idea1='';idea1InputFlag=true"><span>□</span>不喜欢，原因</li>
+
+										<input type="text" v-if="idea1InputFlag" v-model="idea1" placeholder="原因..." autocomplete="off" />
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(idea1)" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide swiper-no-swiping  screen11">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>2、您希望在“一汽-大众客户俱乐部”的公众号上看到什么内容？<small>[多选题]</small></h2>
+									<ul>
+										<li @click="checkBoxClick($event);setidea2('A')"><span>□</span>用车养车相关知识</li>
+										<li @click="checkBoxClick($event);setidea2('B')"><span>□</span>真实车主故事</li>
+										<li @click="checkBoxClick($event);setidea2('C')"><span>□</span>一汽大众售后优惠信息</li>
+										<li @click="checkBoxClick($event);setidea2('D')"><span>□</span>新车型介绍</li>
+										<li @click="checkBoxClick($event);setidea2('E')"><span>□</span>国家关于汽车方面颁布的政策消息</li>
+										<li @click="checkBoxClick($event);setidea2('F')"><span>□</span>有奖互动游戏</li>
+										<li @click="checkBoxClick($event);setidea2('G')"><span>□</span>企业新闻</li>
+										<li @click="checkBoxClick($event);setidea2('H')"><span>□</span>小编没想到的其他内容</li>
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage3(idea2)" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide swiper-no-swiping  screen12">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>3、“一汽-大众客户俱乐部”给您印象最深的一篇推文内容是关于哪方面的？</h2>
+									<ul>
+										<li @click="radioClick($event);idea3='A';idea3InputFlag=false"><span>□</span>爱车课堂</li>
+										<li @click="radioClick($event);idea3='B';idea3InputFlag=false"><span>□</span>保养计划</li>
+										<li @click="radioClick($event);idea3='C';idea3InputFlag=false"><span>□</span>车主故事</li>
+										<li @click="radioClick($event);idea3='D';idea3InputFlag=false"><span>□</span>促销信息</li>
+										<li @click="radioClick($event);idea3='E';idea3InputFlag=false"><span>□</span>有奖互动</li>
+										<li @click="radioClick($event);idea3='';idea3InputFlag=true"><span>□</span>以上都不是，我印象深的内容是</li>
+
+										<input type="text" v-if="idea3InputFlag" v-model="idea3" placeholder="我印象深的内容是..." autocomplete="off" />
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(idea3)" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide swiper-no-swiping  screen13">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>4、您比较中意哪种内容形式？</h2>
+									<ul>
+										<li @click="radioClick($event);idea4='A';idea4InputFlag=false"><span>□</span>字多</li>
+										<li @click="radioClick($event);idea4='B';idea4InputFlag=false"><span>□</span>图多字少</li>
+										<li @click="radioClick($event);idea4='C';idea4InputFlag=false"><span>□</span>视频或gif图</li>
+										<li @click="radioClick($event);idea4='';idea4InputFlag=true"><span>□</span>以上都不喜欢，我喜欢</li>
+
+										<input type="text" v-if="idea4InputFlag" v-model="idea4" placeholder="我喜欢..." autocomplete="off" />
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(idea4)" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide swiper-no-swiping  screen14">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>5、一汽-大众售后服务给您的印象是？</h2>
+									<ul>
+										<li @click="radioClick($event);idea5='A';idea5InputFlag=false"><span>□</span>稍显毛躁但热情有冲劲</li>
+										<li @click="radioClick($event);idea5='B';idea5InputFlag=false"><span>□</span>踏实肯干，求真务实</li>
+										<li @click="radioClick($event);idea5='C';idea5InputFlag=false"><span>□</span>一切用技术说话</li>
+										<li @click="radioClick($event);idea5='';idea5InputFlag=true"><span>□</span>以上都不是，我要吐槽</li>
+
+										<input type="text" v-if="idea5InputFlag" v-model="idea5" placeholder="我要吐槽..." autocomplete="off" />
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(idea5)" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide swiper-no-swiping  screen15">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>6、请留下您对“一汽-大众客户俱乐部”的意见或建议？（这对我们很重要）</h2>
+									<textarea name="" rows="8" cols="" v-model="idea6" placeholder="意见或建议..." autocomplete="off"></textarea>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(idea6)" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide swiper-no-swiping  screen16">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h3>请偷偷告诉我们，您的阅读小癖好~</h3>
+									<h2>1、你在哪个时间段看微信文章比较多？</h2>
+									<ul>
+										<li @click="radioClick($event);read1='A'"><span>□</span>早晨：6-8时</li>
+										<li @click="radioClick($event);read1='B'"><span>□</span>上午：8-10时</li>
+										<li @click="radioClick($event);read1='C'"><span>□</span>中午：10-13时</li>
+										<li @click="radioClick($event);read1='D'"><span>□</span>下午：13-17时</li>
+										<li @click="radioClick($event);read1='E'"><span>□</span>傍晚：17-20时</li>
+										<li @click="radioClick($event);read1='F'"><span>□</span>夜间：20-24时</li>
+										<li @click="radioClick($event);read1='G'"><span>□</span>半夜：凌晨12点以后</li>
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(read1)" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide swiper-no-swiping  screen17">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>2、什么样的微信文章会让您有转发的欲望？</h2>
+									<ul>
+										<li @click="radioClick($event);read2='A';read2InputFlag=false"><span>□</span>内容有趣的</li>
+										<li @click="radioClick($event);read2='B';read2InputFlag=false"><span>□</span>实用有价值的</li>
+										<li @click="radioClick($event);read2='C';read2InputFlag=false"><span>□</span>新奇少见的</li>
+										<li @click="radioClick($event);read2='D';read2InputFlag=false"><span>□</span>紧跟热点的</li>
+										<li @click="radioClick($event);read2='';read2InputFlag=true"><span>□</span>以上都不是，我转发是因为</li>
+
+										<input type="text" v-if="read2InputFlag" v-model="read2" placeholder="我转发是因为..." autocomplete="off" />
+									</ul>
+									<div class="go">
+										<img src="images/global_syt.png" @click="prevPage" />
+										<img src="images/global_xyt.png" @click="nextPage(read2)" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide swiper-no-swiping  screen18">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="global_bg">
+									<img src="images/global_bg.jpg" />
+								</div>
+								<div class="box">
+									<h2>3、你印象最深的企业官方微信公众号是</h2>
+									<input type="text" v-model="read3a" placeholder="微信公众号名称" autocomplete="off" />
+									<h2>理由是</h2>
+									<input type="text" v-model="read3b" placeholder="理由" autocomplete="off" />
+									<div class="go">
+										<img src="images/global_submit.png" @click="submit" />
 									</div>
 								</div>
 							</div>
