@@ -40,19 +40,42 @@ var vm = new Vue({
 	},
 	methods: {
 		radioClick(event) {
-			var lis = event.path[1].children
+			var domName = event.target.nodeName
+
+			if(domName == 'LI') {
+				var lis = event.path[1].children
+			} else if(domName == 'SPAN') {
+				var lis = event.path[2].children
+			}
+
 			for(var i = 0; i < lis.length; i++) {
 				if(lis[i].nodeName == 'LI') {
 					lis[i].children[0].innerHTML = '□'
 				}
 			}
-			event.path[0].children[0].innerHTML = '☑'
+
+			if(domName == 'LI') {
+				event.path[0].children[0].innerHTML = '☑'
+			} else if(domName == 'SPAN') {
+				event.path[0].innerHTML = '☑'
+			}
+
 		},
 		checkBoxClick(event) {
-			if(event.path[0].children[0].innerHTML == '□') {
-				event.path[0].children[0].innerHTML = '☑'
-			} else {
-				event.path[0].children[0].innerHTML = '□'
+			var domName = event.target.nodeName
+
+			if(domName == 'LI') {
+				if(event.path[0].children[0].innerHTML == '□') {
+					event.path[0].children[0].innerHTML = '☑'
+				} else {
+					event.path[0].children[0].innerHTML = '□'
+				}
+			} else if(domName == 'SPAN') {
+				if(event.path[0].innerHTML == '□') {
+					event.path[0].innerHTML = '☑'
+				} else {
+					event.path[0].innerHTML = '□'
+				}
 			}
 		},
 		setFindUs(data) {
