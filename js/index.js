@@ -41,11 +41,14 @@ var vm = new Vue({
 	methods: {
 		radioClick(event) {
 			var domName = event.target.nodeName
+			var lis = null
 
 			if(domName == 'LI') {
-				var lis = event.path[1].children
+				//				lis = event.path[1].children
+				lis = event.target.parentElement.children
 			} else if(domName == 'SPAN') {
-				var lis = event.path[2].children
+				//				lis = event.path[2].children
+				lis = event.target.parentElement.parentElement.children
 			}
 
 			for(var i = 0; i < lis.length; i++) {
@@ -55,26 +58,42 @@ var vm = new Vue({
 			}
 
 			if(domName == 'LI') {
-				event.path[0].children[0].innerHTML = '☑'
+				event.target.children[0].innerHTML = '☑'
+				//				event.path[0].children[0].innerHTML = '☑'
 			} else if(domName == 'SPAN') {
-				event.path[0].innerHTML = '☑'
+				event.target.innerHTML = '☑'
+				//				event.path[0].innerHTML = '☑'
 			}
 
 		},
 		checkBoxClick(event) {
 			var domName = event.target.nodeName
 
+			//			if(domName == 'LI') {
+			//				if(event.path[0].children[0].innerHTML == '□') {
+			//					event.path[0].children[0].innerHTML = '☑'
+			//				} else {
+			//					event.path[0].children[0].innerHTML = '□'
+			//				}
+			//			} else if(domName == 'SPAN') {
+			//				if(event.path[0].innerHTML == '□') {
+			//					event.path[0].innerHTML = '☑'
+			//				} else {
+			//					event.path[0].innerHTML = '□'
+			//				}
+			//			}
+
 			if(domName == 'LI') {
-				if(event.path[0].children[0].innerHTML == '□') {
-					event.path[0].children[0].innerHTML = '☑'
+				if(event.target.children[0].innerHTML == '□') {
+					event.target.children[0].innerHTML = '☑'
 				} else {
-					event.path[0].children[0].innerHTML = '□'
+					event.target.children[0].innerHTML = '□'
 				}
 			} else if(domName == 'SPAN') {
-				if(event.path[0].innerHTML == '□') {
-					event.path[0].innerHTML = '☑'
+				if(event.target.innerHTML == '□') {
+					event.target.innerHTML = '☑'
 				} else {
-					event.path[0].innerHTML = '□'
+					event.target.innerHTML = '□'
 				}
 			}
 		},
@@ -94,7 +113,11 @@ var vm = new Vue({
 		},
 		nextPage2(data1, data2) {
 			if(data1 && data2) {
-				this.mySwiper.slideNext()
+				if(/^[1][0-9]{10}$/.test(data2)) {
+					this.mySwiper.slideNext()
+					return
+				}
+				mui.alert('请输入正确手机号码')
 			} else {
 				mui.alert('请完成选项')
 			}
