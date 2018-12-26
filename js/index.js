@@ -3,6 +3,7 @@ var vm = new Vue({
 	data: {
 		name: '',
 		phone: '',
+		address: '',
 
 		findUs: '',
 
@@ -111,8 +112,8 @@ var vm = new Vue({
 				mui.alert('请完成选项')
 			}
 		},
-		nextPage2(data1, data2) {
-			if(data1 && data2) {
+		nextPage2(data1, data2, data3) {
+			if(data1 && data2 && data3) {
 				if(/^[1][0-9]{10}$/.test(data2)) {
 					this.mySwiper.slideNext()
 					return

@@ -60,15 +60,18 @@
 								<div class="global_bg">
 									<img src="images/global_bg.jpg" />
 								</div>
-								<h2>请留下您的真实信息，<br />不然礼物会找不到回家的路~</h2>
+								<h2>请留下您的真实信息，<br />不然礼物会找不到回家的路~<br /></h2>
+								<h3 style="color: #000;">要坚持到最后点“提交”才有效哦</h3>
 								<form action="">
-									<h2>您的姓名：</h2>
+									<h3>您的姓名：</h3>
 									<input type="text" name="name" v-model="name" autocomplete="off" />
-									<h2>您的手机号：</h2>
+									<h3>您的手机号：</h3>
 									<input type="text" name="phone" v-model="phone" autocomplete="off" />
+									<h3>您的地址：</h3>
+									<input type="text" name="address" v-model="address" autocomplete="off" />
 								</form>
 								<div class="global_xyb">
-									<img src="images/global_xyb.png" @click="nextPage2(name,phone)" />
+									<img src="images/global_xyb.png" @click="nextPage2(name,phone,address)" />
 								</div>
 							</div>
 						</div>
