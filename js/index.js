@@ -17,6 +17,7 @@ var vm = new Vue({
 
 		idea1: '',
 		idea2: [],
+		idea2Other: '',
 		idea3: '',
 		idea4: '',
 		idea5: '',
@@ -33,11 +34,14 @@ var vm = new Vue({
 		user4InputFlag: false,
 
 		idea1InputFlag: false,
+		idea2InputFlag: false,
 		idea3InputFlag: false,
 		idea4InputFlag: false,
 		idea5InputFlag: false,
 
 		read2InputFlag: false,
+
+		endFlag: false
 	},
 	methods: {
 		radioClick(event) {
@@ -151,11 +155,12 @@ var vm = new Vue({
 				mui.alert('请完成选项')
 				return false
 			}
+			this.endFlag = true
 
 			//没抽中这样
-			var msg = ['与礼包擦肩不要紧，千万别错过爱车下一次的保养时间哦～', '与礼包擦肩不要紧，千万别错过妈妈辛苦炖的靓汤哦～', '与礼包擦肩不要紧，千万别错过公司赏赐的年终奖哦～', '与礼包擦肩不要紧，千万别错过落地窗外撩人的美景哦～', '与礼包擦肩不要紧，千万别错过好友聚会丰盛的大餐哦～']
+			//var msg = ['与礼包擦肩不要紧，千万别错过爱车下一次的保养时间哦～', '与礼包擦肩不要紧，千万别错过妈妈辛苦炖的靓汤哦～', '与礼包擦肩不要紧，千万别错过公司赏赐的年终奖哦～', '与礼包擦肩不要紧，千万别错过落地窗外撩人的美景哦～', '与礼包擦肩不要紧，千万别错过好友聚会丰盛的大餐哦～']
 
-			mui.alert(msg[Math.floor(Math.random() * 5)])
+			//mui.alert(msg[Math.floor(Math.random() * 5)])
 		}
 	},
 	//初始化完成
