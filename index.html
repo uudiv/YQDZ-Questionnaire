@@ -461,7 +461,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="swiper-slide swiper-no-swiping  screen18">
+					<div class="swiper-slide swiper-no-swiping screen18">
 						<div class="mui-scroll-wrapper">
 							<div class="mui-scroll">
 								<div class="global_bg">
@@ -478,6 +478,11 @@
 								</div>
 							</div>
 						</div>
+						<transition>
+							<div class="end" ref="end" v-if="endFlag">
+								<div class="wz">您已成功参与抽奖，<br/>请静候佳音！</div>
+							</div>
+						</transition>
 					</div>
 
 				</div>
