@@ -134,6 +134,21 @@ var vm = new Vue({
 				mui.alert('请完成选项')
 			}
 		},
+		idea2nextPage(data) {
+			if(data.length == 0) {
+				mui.alert('请完成选项')
+				return false
+			}
+			if(data.indexOf('H') != -1) {
+				if(!this.idea2Other) {
+					mui.alert('请完成选项')
+					return false
+				}
+				this.mySwiper.slideNext()
+			} else {
+				this.mySwiper.slideNext()
+			}
+		},
 		setUser7(data) {
 			var index = this.user7.indexOf(data)
 			if(index == -1) {
