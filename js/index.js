@@ -48,24 +48,24 @@ var vm = new Vue({
 			var domName = event.target.nodeName
 			var lis = null
 
-			if(domName == 'LI') {
+			if (domName == 'LI') {
 				//				lis = event.path[1].children
 				lis = event.target.parentElement.children
-			} else if(domName == 'SPAN') {
+			} else if (domName == 'SPAN') {
 				//				lis = event.path[2].children
 				lis = event.target.parentElement.parentElement.children
 			}
 
-			for(var i = 0; i < lis.length; i++) {
-				if(lis[i].nodeName == 'LI') {
+			for (var i = 0; i < lis.length; i++) {
+				if (lis[i].nodeName == 'LI') {
 					lis[i].children[0].innerHTML = '□'
 				}
 			}
 
-			if(domName == 'LI') {
+			if (domName == 'LI') {
 				event.target.children[0].innerHTML = '☑'
 				//				event.path[0].children[0].innerHTML = '☑'
-			} else if(domName == 'SPAN') {
+			} else if (domName == 'SPAN') {
 				event.target.innerHTML = '☑'
 				//				event.path[0].innerHTML = '☑'
 			}
@@ -88,14 +88,14 @@ var vm = new Vue({
 			//				}
 			//			}
 
-			if(domName == 'LI') {
-				if(event.target.children[0].innerHTML == '□') {
+			if (domName == 'LI') {
+				if (event.target.children[0].innerHTML == '□') {
 					event.target.children[0].innerHTML = '☑'
 				} else {
 					event.target.children[0].innerHTML = '□'
 				}
-			} else if(domName == 'SPAN') {
-				if(event.target.innerHTML == '□') {
+			} else if (domName == 'SPAN') {
+				if (event.target.innerHTML == '□') {
 					event.target.innerHTML = '☑'
 				} else {
 					event.target.innerHTML = '□'
@@ -110,15 +110,15 @@ var vm = new Vue({
 			this.mySwiper.slidePrev()
 		},
 		nextPage(data) {
-			if(data) {
+			if (data) {
 				this.mySwiper.slideNext()
 			} else {
 				mui.alert('请完成选项')
 			}
 		},
 		nextPage2(data1, data2, data3) {
-			if(data1 && data2 && data3) {
-				if(/^[1][0-9]{10}$/.test(data2)) {
+			if (data1 && data2 && data3) {
+				if (/^[1][0-9]{10}$/.test(data2)) {
 					this.mySwiper.slideNext()
 					return
 				}
@@ -128,19 +128,19 @@ var vm = new Vue({
 			}
 		},
 		nextPage3(data) {
-			if(data.length != 0) {
+			if (data.length != 0) {
 				this.mySwiper.slideNext()
 			} else {
 				mui.alert('请完成选项')
 			}
 		},
 		idea2nextPage(data) {
-			if(data.length == 0) {
+			if (data.length == 0) {
 				mui.alert('请完成选项')
 				return false
 			}
-			if(data.indexOf('H') != -1) {
-				if(!this.idea2Other) {
+			if (data.indexOf('H') != -1) {
+				if (!this.idea2Other) {
 					mui.alert('请完成选项')
 					return false
 				}
@@ -151,7 +151,7 @@ var vm = new Vue({
 		},
 		setUser7(data) {
 			var index = this.user7.indexOf(data)
-			if(index == -1) {
+			if (index == -1) {
 				this.user7.push(data)
 			} else {
 				this.user7.splice(index, 1)
@@ -159,17 +159,53 @@ var vm = new Vue({
 		},
 		setidea2(data) {
 			var index = this.idea2.indexOf(data)
-			if(index == -1) {
+			if (index == -1) {
 				this.idea2.push(data)
 			} else {
 				this.idea2.splice(index, 1)
 			}
 		},
 		submit() {
-			if(!this.read3a || !this.read3b) {
+			if (!this.read3a || !this.read3b) {
 				mui.alert('请完成选项')
 				return false
 			}
+
+			axios.post('/user', {
+
+
+					username: this.username,
+					userphone: this.userphone,
+					useraddress: this.useraddress,
+					findus: this.findus,
+					subject_user1: this.subject_user1,
+					subject_user2: this.subject_user2,
+					subject_user3: this.subject_user3,
+					subject_user4: this.subject_user4,
+					subject_user5: this.subject_user5,
+					subject_user6: this.subject_user6,
+					subject_user7: this.subject_user7,
+					subject_idea1: this.subject_idea1,
+					subject_idea2: this.subject_idea2,
+					subject_idea3: this.subject_idea3,
+					subject_idea4: this.subject_idea4,
+					subject_idea5: this.subject_idea5,
+					subject_idea6: this.subject_idea6,
+					subject_read1: this.subject_read1,
+					subject_read2: this.subject_read2,
+					subject_read3a: this.subject_read3a,
+					subject_read3b: this.subject_read3b
+
+
+				})
+				.then(function (response) {
+					console.log(response);
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
+
+
 			this.endFlag = true
 
 			//没抽中这样
@@ -188,7 +224,7 @@ var vm = new Vue({
 		function audioAutoPlay(id) {
 			var audio = document.getElementById(id);
 			audio.play();
-			document.addEventListener("WeixinJSBridgeReady", function() {
+			document.addEventListener("WeixinJSBridgeReady", function () {
 				audio.play();
 			}, false);
 		}
@@ -207,11 +243,11 @@ var vm = new Vue({
 				prevEl: '.swiper-button-prev',
 			},
 			on: {
-				init: function() {
+				init: function () {
 					swiperAnimateCache(this); //隐藏动画元素 
 					swiperAnimate(this); //初始化完成开始动画
 				},
-				slideChangeTransitionEnd: function() {
+				slideChangeTransitionEnd: function () {
 					swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
 					//this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); //动画只展现一次，去除ani类名
 				}
@@ -228,6 +264,41 @@ var vm = new Vue({
 			deceleration: 0.0006, //阻尼系数,系数越小滑动越灵敏
 			bounce: true //是否启用回弹
 		})
+
+
+		this.$http.post('http://127.0.0.1/api/adduser.php', {
+			username: 'cscs',
+			userphone: 'cc2211333s',
+			useraddress: 'cscs',
+			findus: 'cscs',
+			subject_user1: 'cscs',
+			subject_user2: 'cscs',
+			subject_user3: 'cscs',
+			subject_user4: 'cscs',
+			subject_user5: 'cscs',
+			subject_user6: 'cscs',
+			subject_user7: 'cscs',
+			subject_idea1: 'cscs',
+			subject_idea2: 'cscs',
+			subject_idea3: 'cscs',
+			subject_idea4: 'cscs',
+			subject_idea5: 'cscs',
+			subject_idea6: 'cscs',
+			subject_read1: 'cscs',
+			subject_read2: 'cscs',
+			subject_read3a: 'cscs',
+			subject_read3b: 'cscs'
+		}, {
+			emulateJSON: true
+		}).then(response => {
+
+			console.log(response)
+
+		}, response => {
+			// error callback
+		});
+
+
 
 	}
 })
