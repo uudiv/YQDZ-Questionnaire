@@ -171,46 +171,56 @@ var vm = new Vue({
 				return false
 			}
 
-			axios.post('/user', {
+			var subject_user7 = this.user7.toString();
+			if(this.idea2.indexOf('H') != -1){
+				this.idea2.push(this.idea2Other)
+			}
+			var subject_idea2 = this.idea2.toString();
 
 
-					username: this.username,
-					userphone: this.userphone,
-					useraddress: this.useraddress,
-					findus: this.findus,
-					subject_user1: this.subject_user1,
-					subject_user2: this.subject_user2,
-					subject_user3: this.subject_user3,
-					subject_user4: this.subject_user4,
-					subject_user5: this.subject_user5,
-					subject_user6: this.subject_user6,
-					subject_user7: this.subject_user7,
-					subject_idea1: this.subject_idea1,
-					subject_idea2: this.subject_idea2,
-					subject_idea3: this.subject_idea3,
-					subject_idea4: this.subject_idea4,
-					subject_idea5: this.subject_idea5,
-					subject_idea6: this.subject_idea6,
-					subject_read1: this.subject_read1,
-					subject_read2: this.subject_read2,
-					subject_read3a: this.subject_read3a,
-					subject_read3b: this.subject_read3b
+			this.$http.post('http://127.0.0.1/api/adduser.php', {
+				username: this.name,
+				userphone: this.phone,
+				useraddress: this.address,
+				findus: this.findUs,
+				subject_user1: this.user1,
+				subject_user2: this.user2,
+				subject_user3: this.user3,
+				subject_user4: this.user4,
+				subject_user5: this.user5,
+				subject_user6: this.user6,
+				subject_user7,
+				subject_idea1: this.idea1,
+				subject_idea2,
+				subject_idea3: this.idea3,
+				subject_idea4: this.idea4,
+				subject_idea5: this.idea5,
+				subject_idea6: this.idea6,
+				subject_read1: this.read1,
+				subject_read2: this.read2,
+				subject_read3a: this.read3a,
+				subject_read3b: this.read3b
+			}, {
+				emulateJSON: true
+			}).then(response => {
+				if(response.body.error == true){
+					mui.alert(response.body.message)
+					return false
+				}
+
+				if(response.body.success == true){
+					this.endFlag = true
+				}
+
+			}, response => {
+				// error callback
+			});
 
 
-				})
-				.then(function (response) {
-					console.log(response);
-				})
-				.catch(function (error) {
-					console.log(error);
-				});
-
-
-			this.endFlag = true
+			
 
 			//没抽中这样
 			//var msg = ['与礼包擦肩不要紧，千万别错过爱车下一次的保养时间哦～', '与礼包擦肩不要紧，千万别错过妈妈辛苦炖的靓汤哦～', '与礼包擦肩不要紧，千万别错过公司赏赐的年终奖哦～', '与礼包擦肩不要紧，千万别错过落地窗外撩人的美景哦～', '与礼包擦肩不要紧，千万别错过好友聚会丰盛的大餐哦～']
-
 			//mui.alert(msg[Math.floor(Math.random() * 5)])
 		}
 	},
@@ -264,40 +274,6 @@ var vm = new Vue({
 			deceleration: 0.0006, //阻尼系数,系数越小滑动越灵敏
 			bounce: true //是否启用回弹
 		})
-
-
-		this.$http.post('http://127.0.0.1/api/adduser.php', {
-			username: 'cscs',
-			userphone: 'cc2211333s',
-			useraddress: 'cscs',
-			findus: 'cscs',
-			subject_user1: 'cscs',
-			subject_user2: 'cscs',
-			subject_user3: 'cscs',
-			subject_user4: 'cscs',
-			subject_user5: 'cscs',
-			subject_user6: 'cscs',
-			subject_user7: 'cscs',
-			subject_idea1: 'cscs',
-			subject_idea2: 'cscs',
-			subject_idea3: 'cscs',
-			subject_idea4: 'cscs',
-			subject_idea5: 'cscs',
-			subject_idea6: 'cscs',
-			subject_read1: 'cscs',
-			subject_read2: 'cscs',
-			subject_read3a: 'cscs',
-			subject_read3b: 'cscs'
-		}, {
-			emulateJSON: true
-		}).then(response => {
-
-			console.log(response)
-
-		}, response => {
-			// error callback
-		});
-
 
 
 	}
