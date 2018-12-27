@@ -17,6 +17,7 @@ var vm = new Vue({
 
 		idea1: '',
 		idea2: [],
+		idea2Other: '',
 		idea3: '',
 		idea4: '',
 		idea5: '',
@@ -33,6 +34,7 @@ var vm = new Vue({
 		user4InputFlag: false,
 
 		idea1InputFlag: false,
+		idea2InputFlag: false,
 		idea3InputFlag: false,
 		idea4InputFlag: false,
 		idea5InputFlag: false,

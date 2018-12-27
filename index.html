@@ -309,7 +309,9 @@
 										<li @click="checkBoxClick($event);setidea2('E')"><span>□</span>国家关于汽车方面颁布的政策消息</li>
 										<li @click="checkBoxClick($event);setidea2('F')"><span>□</span>有奖互动游戏</li>
 										<li @click="checkBoxClick($event);setidea2('G')"><span>□</span>企业新闻</li>
-										<li @click="checkBoxClick($event);setidea2('H')"><span>□</span>小编没想到的其他内容</li>
+										<li @click="checkBoxClick($event);setidea2('H');idea2InputFlag=!idea2InputFlag"><span>□</span>小编没想到的其他内容</li>
+										
+										<input type="text" v-if="idea2InputFlag" v-model="idea2Other" placeholder="小编没想到的其他内容..." autocomplete="off" />
 									</ul>
 									<div class="go">
 										<img src="images/global_syt.png" @click="prevPage" />
