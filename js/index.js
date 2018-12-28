@@ -3,7 +3,6 @@ var vm = new Vue({
 	data: {
 		name: '',
 		phone: '',
-		address: '',
 
 		findUs: '',
 
@@ -116,8 +115,8 @@ var vm = new Vue({
 				mui.alert('请完成选项')
 			}
 		},
-		nextPage2(data1, data2, data3) {
-			if (data1 && data2 && data3) {
+		nextPage2(data1, data2) {
+			if (data1 && data2) {
 				if (/^[1][0-9]{10}$/.test(data2)) {
 					this.mySwiper.slideNext()
 					return
@@ -178,10 +177,9 @@ var vm = new Vue({
 			var subject_idea2 = this.idea2.toString();
 
 
-			this.$http.post('http://127.0.0.1/api/adduser.php', {
+			this.$http.post('http://h.uudiv.com/wapi/adduser.php', {
 				username: this.name,
 				userphone: this.phone,
-				useraddress: this.address,
 				findus: this.findUs,
 				subject_user1: this.user1,
 				subject_user2: this.user2,

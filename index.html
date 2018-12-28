@@ -9,12 +9,12 @@
 		<link rel="stylesheet" type="text/css" href="lib/mui/css/mui.min.css" />
 		<link rel="stylesheet" type="text/css" href="lib/swiper/css/swiper.min.css" />
 		<link rel="stylesheet" type="text/css" href="lib/swiper/css/animate.min.css" />
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="css/index.css"/> -->
 		
 
 		<!--生产环境less-->
-		<!-- <link rel="stylesheet" type="text/less" href="less/index.less" />
-		<script src="lib/less/less.min.js" type="text/javascript" charset="utf-8"></script> -->
+		<link rel="stylesheet" type="text/less" href="less/index.less" />
+		<script src="lib/less/less.min.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
@@ -64,15 +64,13 @@
 								<h2>请留下您的真实信息，<br />不然礼物会找不到回家的路~<br /></h2>
 								<h3 style="color: #000;">要坚持到最后点“提交”才有效哦</h3>
 								<form action="">
-									<h3>您的姓名：</h3>
+									<h2>您的姓名：</h2>
 									<input type="text" name="name" v-model="name" autocomplete="off" />
-									<h3>您的手机号：</h3>
+									<h2>您的手机号：</h2>
 									<input type="text" name="phone" v-model="phone" autocomplete="off" />
-									<h3>您的地址：</h3>
-									<input type="text" name="address" v-model="address" autocomplete="off" />
 								</form>
 								<div class="global_xyb">
-									<img src="images/global_xyb.png" @click="nextPage2(name,phone,address)" />
+									<img src="images/global_xyb.png" @click="nextPage2(name,phone)" />
 								</div>
 							</div>
 						</div>
